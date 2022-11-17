@@ -1,5 +1,6 @@
 # LowPassButterworthChevy
-``import numpy
+```
+import numpy
 import math
 
 
@@ -54,4 +55,4 @@ while sigma<0:
     sigma = int(input("Sigma = ? | Sigma is the passband ripple in decibels"))
 
 print(ChevyNthElement(n,k,sigma))
-``
+```
