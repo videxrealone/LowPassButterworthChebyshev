@@ -12,7 +12,7 @@ Butterworth had a reputation for solving "impossible" mathematical problems. At 
 
 ## Transfer Function
 
-The gain {\displaystyle G(\omega )}G(\omega ) of an {\displaystyle n}nth-order Butterworth low-pass filter is given in terms of the transfer function {\displaystyle H(s)}H(s) as
+The gain of an nth-order Butterworth low-pass filter is given in terms of the transfer function as:
 
 ![image](https://user-images.githubusercontent.com/91763346/203866875-b2f6edeb-09d4-41b0-b3ed-ae1e92212e36.png)
 
@@ -31,8 +31,9 @@ I had used some global variables to make it even easier to pass input into the f
 
 The code isn't the best but could be improved.
 
-Check the python file withing this repo to try out the script.
-** PS : Python 3.10 must be running. **
+Check the python file within this repo to try out the script.
+
+**PS : Python 3.10 must be running.**
 
 
 
