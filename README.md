@@ -1,58 +1,43 @@
-# LowPassButterworthChevy
-```
-import numpy
-import math
+# Solving Low Pass Cauer Filters using Butterworth & Chebyshev Methods
+---
+## Overview
+
+Butterworth had a reputation for solving "impossible" mathematical problems. At the time, filter design required a considerable amount of designer experience due to limitations of the theory then in use. The filter was not in common use for over 30 years after its publication. Butterworth stated that:
+
+## Butterworth VS Chebyshev
+
+*   The frequency response of the Butterworth filter is maximally flat (i.e. has no ripples) in the passband and rolls off towards zero in the stopband.[2] When viewed on a logarithmic Bode plot, the response slopes off linearly towards negative infinity. A first-order filter's response rolls off at −6 dB per octave (−20 dB per decade) (all first-order lowpass filters have the same normalized frequency response). A second-order filter decreases at −12 dB per octave, a third-order at −18 dB and so on. Butterworth filters have a monotonically changing magnitude function with ω, unlike other filter types that have non-monotonic ripple in the passband and/or the stopband.
+
+*   Compared with a Chebyshev Type I/Type II filter or an elliptic filter, the Butterworth filter has a slower roll-off, and thus will require a higher order to implement a particular stopband specification, but Butterworth filters have a more linear phase response in the passband than Chebyshev Type I/Type II and elliptic filters can achieve.
+
+## Transfer Function
+
+The gain {\displaystyle G(\omega )}G(\omega ) of an {\displaystyle n}nth-order Butterworth low-pass filter is given in terms of the transfer function {\displaystyle H(s)}H(s) as
+
+![image](https://user-images.githubusercontent.com/91763346/203866875-b2f6edeb-09d4-41b0-b3ed-ae1e92212e36.png)
+
+where {\displaystyle n}n is the order of filter, {\displaystyle \omega _{c}}\omega _{c} is the cutoff frequency (approximately the −3 dB frequency), and {\displaystyle G_{0}}G_{0} is the DC gain (gain at zero frequency).
+
+It can be seen that as {\displaystyle n}n approaches infinity, the gain becomes a rectangle function and frequencies below {\displaystyle \omega _{c}}\omega _{c} will be passed with gain {\displaystyle G_{0}}G_{0}, while frequencies above {\displaystyle \omega _{c}}\omega _{c} will be suppressed. For smaller values of {\displaystyle n}n, the cutoff will be less sharp.
+
+We wish to determine the transfer function {\displaystyle H(s)}H(s) where {\displaystyle s=\sigma +j\omega }s=\sigma +j\omega  (from Laplace transform). Because {\displaystyle \left|H(s)\right|^{2}=H(s){\overline {H(s)}}}\left|H(s)\right|^{2}=H(s)\overline {H(s)} and, as a general property of Laplace transforms at {\displaystyle s=j\omega }s=j\omega , {\displaystyle H(-j\omega )={\overline {H(j\omega )}}}H(-j\omega )=\overline {H(j\omega )}, if we select {\displaystyle H(s)}H(s) such that:
+
+![image](https://user-images.githubusercontent.com/91763346/203867050-c0793ec0-01a1-4295-817c-9223e8deb76e.png)
+
+then, with {\displaystyle s=j\omega }s=j\omega , we have the frequency response of the Butterworth filter.
+
+# Python solution 
+
+## Approach
+
+To solve the equations and to optimize the code and execution time, I had to try and implement each and every equation as a function, this method had helped me gain time and keep my brains while coding because the equations had common parameters that use other functions to get results.
+
+I had used some global variables to make it even easier to pass input into the functions.
+
+The code isn't the best but could be improved.
+
+Check the python file withing this repo to try out the script.
+** PS : Python 3.10 must be running. **
 
 
-#Butterworth using Cauer's topology
-def BWKthElement(n,k):
-    gk = 2 * math.sin(( (2*k - 1)/2*n ) * k)
-    return gk
 
-def Gfunc(i):
-    if i == 0:
-        g = 0
-#to complete
-    return
-
-
-
-
-#The inductor or capacitor values of a nth-order Chebyshev prototype filter may be calculated from the following equations:
-def ChevyNthElement(n,k,sigma):
-    #init
-    #sigma is the passband ripple in decibels
-    beta = numpy.log(math.atanh(sigma/17.37))
-    omega = math.sinh(beta / 2 * n)
-    if (n % 2)==0:
-        r=1
-    else:
-        r=math.atanh(beta/4)
-
-    Ak = math.sin((2 * k - 1) * math.pi)
-    Bk = omega**2 + math.sin((k*math.pi)/n)**2
-    #main
-
-    #G0=1
-    #G1= (2 * Ak)/omega
-    #Gk=()
-
-
-#main
-print("##### --- #####")
-print("this program will calculate the Nth element value using the Cauer topology")
-n=-999
-while n < 0:
-    n = int(input("What's the order of the Low Pass Filter?"))
-k=-999
-while k>n or k<0:
-    k = int(input("What's the order of the device you wish to get?"))
-
-print("Ck = ", BWKthElement(n, k), " F")
-print("Lk = ", BWKthElement(n, k), " Henry")
-sigma=-999
-while sigma<0:
-    sigma = int(input("Sigma = ? | Sigma is the passband ripple in decibels"))
-
-print(ChevyNthElement(n,k,sigma))
-```
