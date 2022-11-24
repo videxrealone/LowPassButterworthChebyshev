@@ -16,11 +16,7 @@ The gain {\displaystyle G(\omega )}G(\omega ) of an {\displaystyle n}nth-order B
 
 ![image](https://user-images.githubusercontent.com/91763346/203866875-b2f6edeb-09d4-41b0-b3ed-ae1e92212e36.png)
 
-where {\displaystyle n}n is the order of filter, {\displaystyle \omega _{c}}\omega _{c} is the cutoff frequency (approximately the −3 dB frequency), and {\displaystyle G_{0}}G_{0} is the DC gain (gain at zero frequency).
-
-It can be seen that as {\displaystyle n}n approaches infinity, the gain becomes a rectangle function and frequencies below {\displaystyle \omega _{c}}\omega _{c} will be passed with gain {\displaystyle G_{0}}G_{0}, while frequencies above {\displaystyle \omega _{c}}\omega _{c} will be suppressed. For smaller values of {\displaystyle n}n, the cutoff will be less sharp.
-
-We wish to determine the transfer function {\displaystyle H(s)}H(s) where {\displaystyle s=\sigma +j\omega }s=\sigma +j\omega  (from Laplace transform). Because {\displaystyle \left|H(s)\right|^{2}=H(s){\overline {H(s)}}}\left|H(s)\right|^{2}=H(s)\overline {H(s)} and, as a general property of Laplace transforms at {\displaystyle s=j\omega }s=j\omega , {\displaystyle H(-j\omega )={\overline {H(j\omega )}}}H(-j\omega )=\overline {H(j\omega )}, if we select {\displaystyle H(s)}H(s) such that:
+We wish to determine the transfer function (from Laplace transform). such that:
 
 ![image](https://user-images.githubusercontent.com/91763346/203867050-c0793ec0-01a1-4295-817c-9223e8deb76e.png)
 
