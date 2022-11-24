@@ -20,7 +20,6 @@ We wish to determine the transfer function (from Laplace transform). such that:
 
 ![image](https://user-images.githubusercontent.com/91763346/203867050-c0793ec0-01a1-4295-817c-9223e8deb76e.png)
 
-then, with {\displaystyle s=j\omega }s=j\omega , we have the frequency response of the Butterworth filter.
 
 # Python solution 
 
